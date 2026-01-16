@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api/items")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ItemController {
     
     @Autowired

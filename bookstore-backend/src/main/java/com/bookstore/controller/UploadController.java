@@ -16,7 +16,6 @@ import java.util.Map;
 import java.util.UUID;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UploadController {
 
     @PostMapping(value = "/api/items/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
