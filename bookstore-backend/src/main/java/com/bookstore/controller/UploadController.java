@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.UUID;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:5173", "http://localhost:3000", "https://second-hand-bookstore-no3iu991a-adityagupta9a24-7322s-projects.vercel.app"})
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UploadController {
 
     @PostMapping(value = "/api/items/upload", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
