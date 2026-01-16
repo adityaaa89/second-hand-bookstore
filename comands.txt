@@ -1,0 +1,11 @@
+# Backend Commands
+cd "C:\Users\adity\Desktop\Second-Hand Bookstore Frontend react\bookstore-backend"
+$env:SPRING_PROFILES_ACTIVE="mysql"
+mvn spring-boot:run
+
+# Frontend Commands (run in separate terminal)
+cd "C:\Users\adity\Desktop\Second-Hand Bookstore Frontend react"
+npm run dev
+
+# MySQL Check (if needed)
+netstat -an | findstr 3306

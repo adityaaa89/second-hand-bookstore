@@ -1,0 +1,63 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: bookstore-backend
+  
+  datasource:
+    url: jdbc:h2:mem:bookstore
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+      data-locations: classpath:data.sql
+      platform: h2
+  
+  # For production with PostgreSQL, uncomment and configure:
+  # datasource:
+  #   url: jdbc:postgresql://localhost:5432/bookstore
+  #   driver-class-name: org.postgresql.Driver
+  #   username: ${DB_USERNAME:bookstore}
+  #   password: ${DB_PASSWORD:password}
+  # jpa:
+  #   hibernate:
+  #     ddl-auto: update
+  #   properties:
+  #     hibernate:
+  #       dialect: org.hibernate.dialect.PostgreSQLDialect
+
+# JWT Configuration
+jwt:
+  secret: mySecretKey123456789012345678901234567890
+  expiration: 86400000 # 24 hours in milliseconds
+
+# CORS Configuration
+cors:
+  # Allow common frontend dev servers (Vite default 5173 and CRA 3000/3001)
+  allowed-origins: http://localhost:3000,http://localhost:3001,http://localhost:5173
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: "*"
+  allow-credentials: true
+
+logging:
+  level:
+    com.bookstore: DEBUG
+    org.springframework.security: DEBUG
